@@ -6,6 +6,7 @@ import Footer from './components/estaticos/footer/Footer';
 import './App.css';
 import Home from './paginas/home/Home';
 import Login from './paginas/login/Login'
+import CadastroUsuario from './paginas/cadastroUsuario/CadastroUsuario';
 
 function App() {
   return (
@@ -19,6 +20,8 @@ function App() {
           <Route path="/login" element={<Login />} />
 
           <Route path="/home" element={<Home />} />
+
+          <Route path="/cadastrousuario" element={<CadastroUsuario />} />
 
         </Routes>
       </div>
