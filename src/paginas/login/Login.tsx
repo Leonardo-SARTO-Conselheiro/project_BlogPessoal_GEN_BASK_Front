@@ -1,20 +1,61 @@
 import React, { useState, ChangeEvent, useEffect } from 'react';
 import { Grid, Box, Typography, TextField, Button, Container } from '@material-ui/core';
 import { Link, useNavigate } from 'react-router-dom';
+import useLocalStorage from 'react-use-localstorage'
+import { login } from '../../services/Service';
+import Usuario from '../../models/Usuario';
 import './Login.css';
 
 function Login() {
-  
+
+    let navigate = useNavigate()
+    const [token, setToken] = useLocalStorage('token');
+
+    const [usuario, setUsuario] = useState<Usuario>(
+        {
+            id: 0,
+            nome: "",
+            email: "",
+            senha: "",
+            foto: "",
+            tipo: "NORMAL"
+        }
+    )
+
+    function updateModel(e: ChangeEvent<HTMLInputElement>) {
+        setUsuario({
+            ...usuario,
+            [e.target.name]: e.target.value
+        })
+    }
+
+    async function onSubmit(e: ChangeEvent<HTMLFormElement>) {
+        e.preventDefault();
+        try {
+            await login(`/api/Usuarios/logar`, usuario, setToken)
+
+            alert('Usuário logado com sucesso!');
+        } catch (error) {
+            alert('Dados do usuário inconsistentes. Erro ao logar!');
+        }
+    }
+
+    useEffect(() => {
+        if (token !== '') {
+            navigate('/home');
+        }
+    })
+
     return (
         <Grid container direction='row' justifyContent='center' alignItems='center'>
             <Grid alignItems='center' xs={6}>
                 <Box paddingX={20}>
-                    <form>
+                    <form onSubmit={onSubmit}>
                         <Typography variant='h3' gutterBottom color='textPrimary' component='h3' align='center' className='textos1'>Entrar</Typography>
-                        <TextField
-                            id='email' label='email' variant='outlined' name='email' margin='normal' fullWidth/>
+                        <TextField value={usuario.email} onChange={(e: ChangeEvent<HTMLInputElement>) => updateModel(e)}
+                            id='email' label='email' variant='outlined' name='email' margin='normal' fullWidth />
 
-                        <TextField
+                        <TextField value={usuario.senha} onChange={(e: ChangeEvent<HTMLInputElement>) => updateModel(e)}
                             id='senha' label='senha' variant='outlined' name='senha' margin='normal' type='password' fullWidth />
 
                         <Box marginTop={2} textAlign='center'>
