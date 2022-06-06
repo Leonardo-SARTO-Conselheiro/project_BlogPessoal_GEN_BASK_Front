@@ -44,7 +44,8 @@ function Login() {
         if (token !== '') {
             navigate('/home');
         }
-    })
+
+    }, [token, navigate]);
 
     return (
         <Grid container direction='row' justifyContent='center' alignItems='center'>
@@ -52,6 +53,7 @@ function Login() {
                 <Box paddingX={20}>
                     <form onSubmit={onSubmit}>
                         <Typography variant='h3' gutterBottom color='textPrimary' component='h3' align='center' className='textos1'>Entrar</Typography>
+
                         <TextField value={usuario.email} onChange={(e: ChangeEvent<HTMLInputElement>) => updateModel(e)}
                             id='email' label='email' variant='outlined' name='email' margin='normal' fullWidth />
 
@@ -62,7 +64,6 @@ function Login() {
                             <Button type='submit' variant='contained' color='primary'>
                                 Logar
                             </Button>
-
                         </Box>
                     </form>
                     <Box display='flex' justifyContent='center' marginTop={2}>
