@@ -2,32 +2,32 @@ import React, { useEffect, useState } from 'react'
 import { Typography, Button, Card, CardActions, CardContent } from "@material-ui/core"
 import './DeletarPostagem.css';
 import { useNavigate, useParams } from 'react-router-dom';
-import useLocalStorage from 'react-use-localstorage';
 import Postagem from '../../../models/Postagem';
 import { buscaId, deleteId } from '../../../services/Service';
 import { Box } from '@mui/material';
+import { useSelector } from 'react-redux';
+import { TokenState } from '../../../store/tokens/tokensReducer';
 
 function DeletarPostagem() {
 
     let navigate = useNavigate();
     const { id } = useParams<{ id: string }>();
-    const [token, setToken] = useLocalStorage('token');
     const [post, setPosts] = useState<Postagem>()
+    const token = useSelector<TokenState, TokenState["tokens"]>(
+        (state) => state.tokens
+      );
 
     useEffect(() => {
         if (token == "") {
             alert("Você precisa estar logado")
             navigate("/login")
-
         }
     }, [token])
-
     useEffect(() => {
         if (id !== undefined) {
             findById(id)
         }
     }, [id])
-
     async function findById(id: string) {
         buscaId(`/api/Postagens/id/${id}`, setPosts, {
             headers: {
@@ -35,7 +35,6 @@ function DeletarPostagem() {
             }
         })
     }
-
     function sim() {
         navigate('/posts')
         deleteId(`/api/Postagens/deletar/${id}`, {
@@ -45,7 +44,6 @@ function DeletarPostagem() {
         });
         alert('Postagem deletada com sucesso');
     }
-
     function nao() {
         navigate('/posts')
     }
@@ -62,7 +60,6 @@ function DeletarPostagem() {
                                 {post?.titulo}
                             </Typography>
                         </Box>
-
                     </CardContent>
                     <CardActions>
                         <Box display="flex" justifyContent="start" ml={1.0} mb={2} >
@@ -83,4 +80,4 @@ function DeletarPostagem() {
         </>
     );
 }
-export default DeletarPostagem; 
+export default DeletarPostagem;
