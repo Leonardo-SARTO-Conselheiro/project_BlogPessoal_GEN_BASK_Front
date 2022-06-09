@@ -34,7 +34,7 @@ function Home() {
                         <Box marginRight={1}>
                             <ModalPostagem/>
                         </Box>
-                        <Link to="/posts" className="text=decorator-nome">
+                        <Link to="/posts" className="text-decorato.none">
                             <Button variant="outlined" className='botao'>Ver Postagens</Button>
                         </Link>
                     </Box>

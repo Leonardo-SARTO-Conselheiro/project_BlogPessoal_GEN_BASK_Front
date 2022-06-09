@@ -21,8 +21,9 @@ function App() {
     <Provider store={store}>
     <Router>
       <Navbar />
-      <div style={{ minHeight: '130vh' }}>
         <Routes>
+
+          <Route path="/" element={<Login />} />
 
           <Route path="/login" element={<Login />} />
 
@@ -47,7 +48,6 @@ function App() {
           <Route path="/deletarTema/:id" element={<DeletarTema />} />
 
         </Routes>
-      </div>
       <Footer />
     </Router>
     </Provider>
