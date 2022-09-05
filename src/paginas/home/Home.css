@@ -1,22 +1,24 @@
-.caixa{
-    background-color: #3F51B5;
+.caixa {
+  background-color: #e79f03;
+  display: inline none;
 }
 
-.titulo{
-   color: white !important;
-   font-weight: bold !important;
+.titulo {
+  color: white !important;
+  font-weight: bold !important;
 }
 
-.botao{
-    border-color: white !important;
-    background-color: #3F51B5;
-    color: white !important;
+.botao {
+  border-color: white !important;
+  background-color: #3f51b5;
+  color: white !important;
+  text-decoration: none !important;
 }
 
-.postagens{
-    background-color: white;
-} 
+.postagens {
+  background-color: white;
+}
 
-.text-decorato.none{
-    text-decoration: none;
+.text-decoration.none {
+  text-decoration: none !important;
 }
