@@ -1,28 +1,29 @@
-
-import React from 'react';
-import { BrowserRouter as Router, Route, Routes } from 'react-router-dom';
-import Navbar from './components/estaticos/navbar/Navbar';
-import Footer from './components/estaticos/footer/Footer';
-import './App.css';
-import Home from './paginas/home/Home';
-import Login from './paginas/login/Login'
-import CadastroUsuario from './paginas/cadastroUsuario/CadastroUsuario';
-import ListaTema from './components/temas/listatema/ListaTema';
-import ListaPostagem from './components/postagens/listapostagem/ListaPostagem';
-import CadastroPostagem from './components/postagens/cadastroPostagem/CadastroPostagem';
-import DeletarPostagem from './components/postagens/deletarPostagem/DeletarPostagem';
-import CadastroTema from './components/temas/cadastroTema/cadastroTema';
-import DeletarTema from './components/temas/deletarTema/DeletarTema';
-import { Provider } from 'react-redux';
-import store from './store/store';
+import React from "react";
+import { BrowserRouter as Router, Route, Routes } from "react-router-dom";
+import Navbar from "./components/estaticos/navbar/Navbar";
+import Footer from "./components/estaticos/footer/Footer";
+import "./App.css";
+import Home from "./paginas/home/Home";
+import Login from "./paginas/login/Login";
+import CadastroUsuario from "./paginas/cadastroUsuario/CadastroUsuario";
+import ListaTema from "./components/temas/listatema/ListaTema";
+import ListaPostagem from "./components/postagens/listapostagem/ListaPostagem";
+import CadastroPostagem from "./components/postagens/cadastroPostagem/CadastroPostagem";
+import DeletarPostagem from "./components/postagens/deletarPostagem/DeletarPostagem";
+import CadastroTema from "./components/temas/cadastroTema/cadastroTema";
+import DeletarTema from "./components/temas/deletarTema/DeletarTema";
+import { Provider } from "react-redux";
+import { ToastContainer } from "react-toastify";
+import "react-toastify/dist/ReactToastify.css";
+import store from "./store/store";
 
 function App() {
   return (
     <Provider store={store}>
-    <Router>
-      <Navbar />
+      <ToastContainer />
+      <Router>
+        <Navbar />
         <Routes>
-
           <Route path="/" element={<Login />} />
 
           <Route path="/login" element={<Login />} />
@@ -37,7 +38,10 @@ function App() {
 
           <Route path="/formularioPostagem" element={<CadastroPostagem />} />
 
-          <Route path="/formularioPostagem/:id" element={<CadastroPostagem />} />
+          <Route
+            path="/formularioPostagem/:id"
+            element={<CadastroPostagem />}
+          />
 
           <Route path="/formularioTema" element={<CadastroTema />} />
 
@@ -46,10 +50,9 @@ function App() {
           <Route path="/deletarPostagem/:id" element={<DeletarPostagem />} />
 
           <Route path="/deletarTema/:id" element={<DeletarTema />} />
-
         </Routes>
-      <Footer />
-    </Router>
+        <Footer />
+      </Router>
     </Provider>
   );
 }

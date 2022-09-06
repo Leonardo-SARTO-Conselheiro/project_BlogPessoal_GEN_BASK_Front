@@ -1,8 +1,11 @@
-.cursor{
-    cursor: pointer;
-    color: white;
+.cursor {
+  cursor: pointer;
+  color: white;
 }
 
+.navbar {
+  background-color: rgb(163, 0, 0);
+}
 .text-decorator-none {
-    text-decoration: none;
+  text-decoration: none;
 }

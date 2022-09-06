@@ -1,6 +1,5 @@
 .caixa {
   background-color: #e79f03;
-  display: inline none;
 }
 
 .titulo {
@@ -12,13 +11,12 @@
   border-color: white !important;
   background-color: #3f51b5;
   color: white !important;
-  text-decoration: none !important;
 }
 
 .postagens {
   background-color: white;
 }
 
-.text-decoration.none {
+.text-decorator-none {
   text-decoration: none !important;
 }
