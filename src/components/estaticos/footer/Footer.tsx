@@ -1,6 +1,7 @@
 import React from "react";
 import LinkedInIcon from "@material-ui/icons/LinkedIn";
-import { Typography, Box, Grid } from "@material-ui/core";
+import { Typography, Grid } from "@material-ui/core";
+import { Box } from "@mui/material";
 import "./Footer.css";
 import { useSelector } from "react-redux";
 import { TokenState } from "../../../store/tokens/tokensReducer";
@@ -21,7 +22,7 @@ function Footer() {
         alignItems="center"
       >
         <Grid alignItems="center" item xs={12}>
-          <Box className="box1">
+          <Box style={{ backgroundColor: "#a30000", height: "120px" }}>
             <Box
               paddingTop={1}
               display="flex"
@@ -32,9 +33,9 @@ function Footer() {
                 variant="h5"
                 align="center"
                 gutterBottom
-                className="textos"
+                style={{ color: "white" }}
               >
-                Siga-me no LinkedIn
+                Encontre-me no LinkedIn!{" "}
               </Typography>
             </Box>
             <Box display="flex" alignItems="center" justifyContent="center">
@@ -43,42 +44,37 @@ function Footer() {
                 target="_blank"
                 rel="noopener noreferrer"
               >
-                <LinkedInIcon className="redes" />
+                <LinkedInIcon style={{ fontSize: 60, color: "white" }} />
               </a>
             </Box>
           </Box>
-          <Box className="box2">
+          <Box style={{ backgroundColor: "#a30000", height: "60px" }}>
             <Box paddingTop={1}>
               <Typography
                 variant="subtitle2"
                 align="center"
                 gutterBottom
-                className="textos"
+                style={{ color: "white" }}
               >
                 © 2022 Copyright:
               </Typography>
             </Box>
             <Box>
-              <a
-                target="_blank"
-                href="https://www.linkedin.com/in/leonardo-sarto-6a8a7214a/"
-                rel="noopener noreferrer"
+              <Typography
+                variant="subtitle2"
+                gutterBottom
+                style={{ color: "white" }}
+                align="center"
               >
-                <Typography
-                  variant="subtitle2"
-                  gutterBottom
-                  className="textos"
-                  align="center"
-                >
-                  Projeto desenvolvido por: Leonardo Sarto Conselheiro
-                </Typography>
-              </a>
+                Criado por: Leonardo Sarto Conselheiro
+              </Typography>
             </Box>
           </Box>
         </Grid>
       </Grid>
     );
   }
+
   return <>{footerComponent}</>;
 }
 
