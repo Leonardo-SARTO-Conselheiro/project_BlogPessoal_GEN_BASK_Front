@@ -40,7 +40,7 @@ function Home() {
               align="center"
               className="titulo"
             >
-              Seja bem vindo(a)!
+              Seja bem vindo(a) AMANTE DO BASKETBALL!
             </Typography>
             <Typography
               variant="h5"
@@ -50,7 +50,7 @@ function Home() {
               align="center"
               className="titulo"
             >
-              expresse aqui os seus pensamentos e opiniões!
+              Postagens relacionadas a NBA, NBB E EuroLiga
             </Typography>
           </Box>
           <Box display="flex" justifyContent="center">
@@ -66,9 +66,9 @@ function Home() {
         </Grid>
         <Grid item xs={6}>
           <img
-            src="https://i.imgur.com/H88yIo2.png"
+            src="https://i.imgur.com/tH5qMbR.jpg"
             alt=""
-            width="500px"
+            width="671px"
             height="500px"
           />
         </Grid>

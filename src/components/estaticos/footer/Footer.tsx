@@ -24,7 +24,7 @@ function Footer() {
         alignItems="center"
       >
         <Grid alignItems="center" item xs={12}>
-          <Box style={{ backgroundColor: "#3F51B5", height: "120px" }}>
+          <Box style={{ backgroundColor: "#a30000", height: "120px" }}>
             <Box
               paddingTop={1}
               display="flex"
@@ -37,26 +37,12 @@ function Footer() {
                 gutterBottom
                 style={{ color: "white" }}
               >
-                Siga-nos nas redes sociais{" "}
+                Siga-me no LinkedIn{" "}
               </Typography>
             </Box>
             <Box display="flex" alignItems="center" justifyContent="center">
               <a
-                href="https://www.facebook.com/generationbrasil"
-                target="_blank"
-                rel="noopener noreferrer"
-              >
-                <FacebookIcon style={{ fontSize: 60, color: "white" }} />
-              </a>
-              <a
-                href="https://www.instagram.com/generationbrasil/"
-                target="_blank"
-                rel="noopener noreferrer"
-              >
-                <InstagramIcon style={{ fontSize: 60, color: "white" }} />
-              </a>
-              <a
-                href="https://www.linkedin.com/school/generationbrasil/"
+                href="https://www.linkedin.com/in/leonardo-sarto-6a8a7214a/"
                 target="_blank"
                 rel="noopener noreferrer"
               >
@@ -64,7 +50,7 @@ function Footer() {
               </a>
             </Box>
           </Box>
-          <Box style={{ backgroundColor: "#303F9F", height: "60px" }}>
+          <Box style={{ backgroundColor: "#a30000", height: "60px" }}>
             <Box paddingTop={1}>
               <Typography
                 variant="subtitle2"
@@ -72,24 +58,18 @@ function Footer() {
                 gutterBottom
                 style={{ color: "white" }}
               >
-                © 2020 Copyright:
+                © 2022 Copyright:
               </Typography>
             </Box>
             <Box>
-              <a
-                target="_blank"
-                href="https://brasil.generation.org"
-                rel="noopener noreferrer"
+              <Typography
+                variant="subtitle2"
+                gutterBottom
+                style={{ color: "white" }}
+                align="center"
               >
-                <Typography
-                  variant="subtitle2"
-                  gutterBottom
-                  style={{ color: "white" }}
-                  align="center"
-                >
-                  brasil.generation.org
-                </Typography>
-              </a>
+                Projeto desenvolvido por: Leonardo Sarto Conselheiro
+              </Typography>
             </Box>
           </Box>
         </Grid>

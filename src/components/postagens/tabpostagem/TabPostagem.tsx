@@ -16,7 +16,12 @@ function TabPostagem() {
     <>
       <TabContext value={value}>
         <AppBar position="static">
-          <Tabs centered indicatorColor="secondary" onChange={handleChange}>
+          <Tabs
+            style={{ backgroundColor: "#a30000" }}
+            centered
+            indicatorColor="secondary"
+            onChange={handleChange}
+          >
             <Tab label="Todas as postagens" value="1" />
             <Tab label="Sobre-nós" value="2" />
           </Tabs>
@@ -43,17 +48,13 @@ function TabPostagem() {
             color="textPrimary"
             align="justify"
           >
-            Lorem ipsum, dolor sit amet consectetur adipisicing elit.
-            Dignissimos ut eveniet natus totam et, voluptate dicta tempore
-            alias, odio nobis non eius cupiditate minima inventore pariatur!
-            Ipsum itaque consectetur voluptatibus. Lorem ipsum dolor sit amet
-            consectetur adipisicing elit. Quo velit consequuntur suscipit
-            fugiat, nam quis quod quaerat veritatis et, vel ratione beatae,
-            facere neque! Quo animi porro voluptate saepe deleniti? Lorem ipsum
-            dolor sit amet consectetur adipisicing elit. Inventore adipisci,
-            officia aut quidem dolorum deserunt iure dolorem doloribus velit
-            nobis quas consequatur at ullam odit, nesciunt est nulla nihil
-            excepturi!
+            Blog desenvolvido para amantes do Bask compartilharem informações e
+            seus pensamentos. Seja na NBA, NBB, EuroLiga ou qualquer liga
+            profissional ou até mesmo amadora. Me chamo Leonardo sou torcedor do
+            BULLS e do Basquete Tricolor, acompanho a NBA aproximadamente 10
+            anos e vejo o jogo evoluir diariamente, seja nas quadras americanas,
+            ginasios brasileiros ou até mesmo em quadras periféricas. SOU UM
+            APAIXONADO POR BASKET
           </Typography>
         </TabPanel>
       </TabContext>
