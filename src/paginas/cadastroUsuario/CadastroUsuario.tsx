@@ -1,18 +1,19 @@
-import React, { ChangeEvent, useEffect, useState } from "react";
-import { Link, useNavigate } from "react-router-dom";
-import { cadastroUsuario } from "../../services/Service";
-import Usuario from "../../models/Usuario";
 import {
   Grid,
   Typography,
-  Button,
   TextField,
+  Button,
   FormControl,
   InputLabel,
   Select,
 } from "@material-ui/core";
-import { Box } from "@mui/material";
+import { Link, useNavigate } from "react-router-dom";
+import React, { ChangeEvent, useEffect, useState } from "react";
 import "./CadastroUsuario.css";
+import Usuario from "../../models/Usuario";
+import { cadastroUsuario } from "../../services/Service";
+import { Box } from "@mui/material";
+import { toast } from "react-toastify";
 
 function CadastroUsuario() {
   let navigate = useNavigate();
@@ -64,22 +65,56 @@ function CadastroUsuario() {
           usuario,
           setUsuarioResultado
         );
-        alert("Usuario cadastrado com sucesso");
+        toast.success("Usuário cadastrado com sucesso", {
+          position: "top-right",
+          autoClose: 2000,
+          hideProgressBar: false,
+          closeOnClick: true,
+          pauseOnHover: false,
+          draggable: false,
+          theme: "colored",
+          progress: undefined,
+        });
       } catch (error) {
-        alert("Usuario já cadastrado, tente outro email!");
+        toast.error("Usuario já cadastrado, tente outro email!", {
+          position: "top-right",
+          autoClose: 2000,
+          hideProgressBar: false,
+          closeOnClick: true,
+          pauseOnHover: false,
+          draggable: false,
+          theme: "colored",
+          progress: undefined,
+        });
       }
     } else {
-      alert(
-        "Dados inconsistentes. Favor verificar as informações de cadastro."
+      toast.error(
+        "Dados inconsistentes. Favor verificar as informações de cadastro.",
+        {
+          position: "top-right",
+          autoClose: 2000,
+          hideProgressBar: false,
+          closeOnClick: true,
+          pauseOnHover: false,
+          draggable: false,
+          theme: "colored",
+          progress: undefined,
+        }
       );
     }
   }
 
   return (
-    <Grid container direction="row" justifyContent="center" alignItems="center">
+    <Grid
+      container
+      direction="row"
+      justifyContent="center"
+      alignItems="center"
+      style={{ backgroundColor: "#a30000" }}
+    >
       <Grid item xs={6} className="imagem2"></Grid>
-      <Grid item xs={6} alignItems="center">
-        <Box paddingX={10}>
+      <Grid item xs={6} alignItems="center" style={{ backgroundColor: "#fff" }}>
+        <Box paddingX={20}>
           <form onSubmit={onSubmit}>
             <Typography
               variant="h3"
@@ -168,7 +203,6 @@ function CadastroUsuario() {
               >
                 <option aria-label="None" value="" />
                 <option value="NORMAL">NORMAL</option>
-                <option value="ADMINISTRADOR">ADMINISTRADOR</option>
               </Select>
             </FormControl>
 
@@ -186,7 +220,12 @@ function CadastroUsuario() {
                 </Link>
               </Box>
               <Box marginY={2} textAlign="center">
-                <Button type="submit" variant="contained" color="primary">
+                <Button
+                  type="submit"
+                  variant="contained"
+                  color="primary"
+                  className="btnCadastrar"
+                >
                   Cadastrar
                 </Button>
               </Box>

@@ -8,6 +8,7 @@ import Usuario from "../../models/Usuario";
 import "./Login.css";
 import { useDispatch } from "react-redux";
 import { addToken } from "../../store/tokens/actions";
+import { toast } from "react-toastify";
 
 function Login() {
   let navigate = useNavigate();
@@ -37,9 +38,27 @@ function Login() {
     try {
       await login(`/api/Usuarios/logar`, usuario, setToken, setIdCriador);
 
-      alert("Usuário logado com sucesso!");
+      toast.success("Usuário logado com sucesso", {
+        position: "top-right",
+        autoClose: 2000,
+        hideProgressBar: false,
+        closeOnClick: true,
+        pauseOnHover: false,
+        draggable: false,
+        theme: "colored",
+        progress: undefined,
+      });
     } catch (error) {
-      alert("Dados do usuário inconsistentes. Erro ao logar!");
+      toast.error("Dados do usuário inconsistente. Erro ao logar!", {
+        position: "top-right",
+        autoClose: 2000,
+        hideProgressBar: false,
+        closeOnClick: true,
+        pauseOnHover: false,
+        draggable: false,
+        theme: "colored",
+        progress: undefined,
+      });
     }
   }
 
@@ -57,8 +76,9 @@ function Login() {
         direction="row"
         justifyContent="center"
         alignItems="center"
+        style={{ backgroundColor: "#a30000" }}
       >
-        <Grid alignItems="center" xs={6}>
+        <Grid alignItems="center" xs={6} style={{ backgroundColor: "#fff" }}>
           <Box paddingX={20}>
             <form onSubmit={onSubmit}>
               <Typography
@@ -69,7 +89,7 @@ function Login() {
                 align="center"
                 className="textos1"
               >
-                Entrar ao Blog
+                Entrar no Fórum
               </Typography>
 
               <TextField
@@ -96,7 +116,11 @@ function Login() {
               />
 
               <Box marginTop={2} textAlign="center">
-                <Button type="submit" variant="contained" color="primary">
+                <Button
+                  type="submit"
+                  variant="contained"
+                  style={{ backgroundColor: "#f1a0a0" }}
+                >
                   Logar
                 </Button>
               </Box>
