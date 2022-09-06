@@ -1,19 +1,18 @@
+import React, { ChangeEvent, useEffect, useState } from "react";
+import { Link, useNavigate } from "react-router-dom";
+import { cadastroUsuario } from "../../services/Service";
+import Usuario from "../../models/Usuario";
 import {
   Grid,
   Typography,
-  TextField,
   Button,
+  TextField,
   FormControl,
   InputLabel,
   Select,
 } from "@material-ui/core";
-import { Link, useNavigate } from "react-router-dom";
-import React, { ChangeEvent, useEffect, useState } from "react";
-import "./CadastroUsuario.css";
-import Usuario from "../../models/Usuario";
-import { cadastroUsuario } from "../../services/Service";
 import { Box } from "@mui/material";
-import { toast } from "react-toastify";
+import "./CadastroUsuario.css";
 
 function CadastroUsuario() {
   let navigate = useNavigate();
@@ -65,41 +64,13 @@ function CadastroUsuario() {
           usuario,
           setUsuarioResultado
         );
-        toast.success("Usuário cadastrado com sucesso", {
-          position: "top-right",
-          autoClose: 2000,
-          hideProgressBar: false,
-          closeOnClick: true,
-          pauseOnHover: false,
-          draggable: false,
-          theme: "colored",
-          progress: undefined,
-        });
+        alert("Usuario cadastrado com sucesso");
       } catch (error) {
-        toast.error("Usuário já cadastrado", {
-          position: "top-right",
-          autoClose: 2000,
-          hideProgressBar: false,
-          closeOnClick: true,
-          pauseOnHover: false,
-          draggable: false,
-          theme: "colored",
-          progress: undefined,
-        });
+        alert("Usuario já cadastrado, tente outro email!");
       }
     } else {
-      toast.error(
-        "Dados inconsistentes. Favor verificar as informações de cadastro.",
-        {
-          position: "top-right",
-          autoClose: 2000,
-          hideProgressBar: false,
-          closeOnClick: true,
-          pauseOnHover: false,
-          draggable: false,
-          theme: "colored",
-          progress: undefined,
-        }
+      alert(
+        "Dados inconsistentes. Favor verificar as informações de cadastro."
       );
     }
   }
@@ -108,7 +79,7 @@ function CadastroUsuario() {
     <Grid container direction="row" justifyContent="center" alignItems="center">
       <Grid item xs={6} className="imagem2"></Grid>
       <Grid item xs={6} alignItems="center">
-        <Box paddingX={20}>
+        <Box paddingX={10}>
           <form onSubmit={onSubmit}>
             <Typography
               variant="h3"
@@ -118,14 +89,14 @@ function CadastroUsuario() {
               align="center"
               className="textos2"
             >
-              Cadastar
+              Cadastrar
             </Typography>
 
             <TextField
               value={usuario.nome}
               onChange={(e: ChangeEvent<HTMLInputElement>) => updatedModel(e)}
               id="nome"
-              label="Nome"
+              label="nome"
               variant="outlined"
               name="nome"
               margin="normal"
@@ -136,7 +107,7 @@ function CadastroUsuario() {
               value={usuario.email}
               onChange={(e: ChangeEvent<HTMLInputElement>) => updatedModel(e)}
               id="email"
-              label="Email"
+              label="email"
               variant="outlined"
               name="email"
               margin="normal"
@@ -148,7 +119,7 @@ function CadastroUsuario() {
               value={usuario.senha}
               onChange={(e: ChangeEvent<HTMLInputElement>) => updatedModel(e)}
               id="senha"
-              label="Senha"
+              label="senha"
               variant="outlined"
               name="senha"
               margin="normal"
@@ -162,7 +133,7 @@ function CadastroUsuario() {
                 confirmarSenhaHandle(e)
               }
               id="confirmarSenha"
-              label="Confirmar Senha"
+              label="confirmarSenha"
               variant="outlined"
               name="confirmarSenha"
               margin="normal"
@@ -174,7 +145,7 @@ function CadastroUsuario() {
               value={usuario.foto}
               onChange={(e: ChangeEvent<HTMLInputElement>) => updatedModel(e)}
               id="foto"
-              label="Foto"
+              label="foto"
               variant="outlined"
               name="foto"
               margin="normal"
@@ -185,7 +156,7 @@ function CadastroUsuario() {
               onChange={(e: ChangeEvent<HTMLInputElement>) => updatedModel(e)}
               variant="outlined"
             >
-              <InputLabel htmlFor="outlined-age-native-simple">Tipo</InputLabel>
+              <InputLabel htmlFor="outlined-age-native-simple">tipo</InputLabel>
               <Select
                 value={usuario.tipo}
                 native
@@ -196,8 +167,8 @@ function CadastroUsuario() {
                 }}
               >
                 <option aria-label="None" value="" />
-                <option value="NORMAL">Normal</option>
-                <option value="ADMINISTRADOR">Administrador</option>
+                <option value="NORMAL">NORMAL</option>
+                <option value="ADMINISTRADOR">ADMINISTRADOR</option>
               </Select>
             </FormControl>
 

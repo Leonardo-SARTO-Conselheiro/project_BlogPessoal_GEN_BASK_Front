@@ -10,25 +10,22 @@ import ListaTema from "./components/temas/listatema/ListaTema";
 import ListaPostagem from "./components/postagens/listapostagem/ListaPostagem";
 import CadastroPostagem from "./components/postagens/cadastroPostagem/CadastroPostagem";
 import DeletarPostagem from "./components/postagens/deletarPostagem/DeletarPostagem";
-import CadastroTema from "./components/temas/cadastroTema/cadastroTema";
 import DeletarTema from "./components/temas/deletarTema/DeletarTema";
 import { Provider } from "react-redux";
-import { ToastContainer } from "react-toastify";
-import "react-toastify/dist/ReactToastify.css";
 import store from "./store/store";
+import CadastroTema from "./components/temas/cadastroTema/cadastroTema";
 
 function App() {
   return (
     <Provider store={store}>
-      <ToastContainer />
       <Router>
         <Navbar />
         <Routes>
           <Route path="/" element={<Login />} />
 
-          <Route path="/login" element={<Login />} />
-
           <Route path="/home" element={<Home />} />
+
+          <Route path="/login" element={<Login />} />
 
           <Route path="/cadastrousuario" element={<CadastroUsuario />} />
 

@@ -10,11 +10,11 @@ import {
   Typography,
 } from "@material-ui/core";
 import "./ListaPostagem.css";
+import useLocalStorage from "react-use-localstorage";
 import { useNavigate } from "react-router-dom";
 import { Box } from "@mui/material";
 import { useSelector } from "react-redux";
 import { TokenState } from "../../../store/tokens/tokensReducer";
-import { toast } from "react-toastify";
 
 function ListaPostagem() {
   const [posts, setPosts] = useState<Postagem[]>([]);
@@ -25,16 +25,7 @@ function ListaPostagem() {
 
   useEffect(() => {
     if (token == "") {
-      toast.error("Você precisa estar logado", {
-        position: "top-right",
-        autoClose: 2000,
-        hideProgressBar: false,
-        closeOnClick: true,
-        pauseOnHover: false,
-        draggable: false,
-        theme: "colored",
-        progress: undefined,
-      });
+      alert("Você precisa estar logado");
       navigate("/login");
     }
   }, [token]);
@@ -50,6 +41,14 @@ function ListaPostagem() {
   useEffect(() => {
     getPost();
   }, [posts.length]);
+
+  if (posts.length < 1) {
+    return (
+      <>
+        <h1>Não possui nenhuma postagem</h1>
+      </>
+    );
+  }
 
   return (
     <>

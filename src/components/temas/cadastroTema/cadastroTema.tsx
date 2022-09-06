@@ -3,9 +3,9 @@ import { Container, Typography, TextField, Button } from "@material-ui/core";
 import Tema from "../../../models/Tema";
 import { buscaId, post, put } from "../../../services/Service";
 import { useNavigate, useParams } from "react-router-dom";
+import useLocalStorage from "react-use-localstorage";
 import { useSelector } from "react-redux";
 import { TokenState } from "../../../store/tokens/tokensReducer";
-import { toast } from "react-toastify";
 
 function CadastroTema() {
   let navigate = useNavigate();
@@ -13,7 +13,6 @@ function CadastroTema() {
   const token = useSelector<TokenState, TokenState["tokens"]>(
     (state) => state.tokens
   );
-
   const [tema, setTema] = useState<Tema>({
     id: 0,
     descricao: "",
@@ -21,16 +20,7 @@ function CadastroTema() {
 
   useEffect(() => {
     if (token === "") {
-      toast.error("Você precisa estar logado", {
-        position: "top-right",
-        autoClose: 2000,
-        hideProgressBar: false,
-        closeOnClick: true,
-        pauseOnHover: false,
-        draggable: false,
-        theme: "colored",
-        progress: undefined,
-      });
+      alert("Você precisa estar logado");
       navigate("/login");
     }
   }, [token]);
@@ -66,32 +56,14 @@ function CadastroTema() {
           Authorization: token,
         },
       });
-      toast.success("Tema atualizado com sucesso", {
-        position: "top-right",
-        autoClose: 2000,
-        hideProgressBar: false,
-        closeOnClick: true,
-        pauseOnHover: false,
-        draggable: false,
-        theme: "colored",
-        progress: undefined,
-      });
+      alert("Tema atualizado com sucesso");
     } else {
       post(`/api/Temas`, tema, setTema, {
         headers: {
           Authorization: token,
         },
       });
-      toast.success("Tema cadastrado com sucesso", {
-        position: "top-right",
-        autoClose: 2000,
-        hideProgressBar: false,
-        closeOnClick: true,
-        pauseOnHover: false,
-        draggable: false,
-        theme: "colored",
-        progress: undefined,
-      });
+      alert("Tema cadastrado com sucesso");
     }
     back();
   }

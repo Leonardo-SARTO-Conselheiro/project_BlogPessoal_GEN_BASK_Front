@@ -1,12 +1,12 @@
 import React, { useEffect } from "react";
-import { Typography, Box, Grid, Button } from "@material-ui/core";
+import { Typography, Grid, Button } from "@material-ui/core";
+import { Box } from "@mui/material";
+import "./Home.css";
 import TabPostagem from "../../components/postagens/tabpostagem/TabPostagem";
 import ModalPostagem from "../../components/postagens/modalPostagem/ModalPostagem";
-import "./Home.css";
 import { Link, useNavigate } from "react-router-dom";
 import { useSelector } from "react-redux";
 import { TokenState } from "../../store/tokens/tokensReducer";
-import { toast } from "react-toastify";
 
 function Home() {
   let navigate = useNavigate();
@@ -16,16 +16,7 @@ function Home() {
 
   useEffect(() => {
     if (token == "") {
-      toast.error("Você precisa estar logado", {
-        position: "top-right",
-        autoClose: 2000,
-        hideProgressBar: false,
-        closeOnClick: true,
-        pauseOnHover: false,
-        draggable: false,
-        theme: "colored",
-        progress: undefined,
-      });
+      alert("Você precisa estar logado para acessar esta página!");
       navigate("/login");
     }
   }, [token]);
@@ -49,7 +40,7 @@ function Home() {
               align="center"
               className="titulo"
             >
-              Seja bem vindo(a)! AMANTE DO BASKETBALL
+              Seja bem vindo(a)!
             </Typography>
             <Typography
               variant="h5"
@@ -59,7 +50,7 @@ function Home() {
               align="center"
               className="titulo"
             >
-              Postagens relacionadas a NBA, NBB E EuroLiga
+              expresse aqui os seus pensamentos e opiniões!
             </Typography>
           </Box>
           <Box display="flex" justifyContent="center">
@@ -75,9 +66,9 @@ function Home() {
         </Grid>
         <Grid item xs={6}>
           <img
-            src="https://i.imgur.com/tH5qMbR.jpg"
+            src="https://i.imgur.com/H88yIo2.png"
             alt=""
-            width="671px"
+            width="500px"
             height="500px"
           />
         </Grid>
